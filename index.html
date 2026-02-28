@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gerador de Sermão | Estudo Bíblico</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✝</text></svg>"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Source+Sans+3:wght@300;400;600&display=swap">
+  <link rel="stylesheet" href="css/estilos.css"/>
+</head>
+<body>
+<div class="app-root" id="app-root">
+
+  <!-- ═══════════ SIDEBAR ═══════════ -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-brand">
+      <span class="brand-cruz">✝</span>
+      <div><h1 class="brand-titulo">Sermão</h1><p class="brand-sub">v2.5 · Estudo Bíblico</p></div>
+    </div>
+
+    <!-- Abas de modo de busca -->
+    <div class="modo-tabs">
+      <button class="modo-tab active" data-modo="referencia">📖 Ref.</button>
+      <button class="modo-tab" data-modo="palavra">🔍 Palavras</button>
+    </div>
+
+    <!-- Busca por referência -->
+    <div id="busca-ref-area" class="sidebar-busca">
+      <label class="busca-label">Referência ou Capítulo</label>
+      <div class="busca-grupo">
+        <input type="text" id="input-referencia" class="busca-input" placeholder="João 3 ou Jo 3:16" autocomplete="off" spellcheck="false"/>
+        <button id="btn-buscar" class="busca-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+      </div>
+      <p class="busca-dica"><kbd>Enter</kbd> busca · aceita abreviações</p>
+    </div>
+
+    <!-- Busca por palavra -->
+    <div id="busca-palavra-area" class="sidebar-busca hidden">
+      <label class="busca-label">Palavra ou frase</label>
+      <div class="busca-grupo">
+        <input type="text" id="input-palavra" class="busca-input" placeholder='amor de Deus' autocomplete="off" spellcheck="false"/>
+        <button id="btn-buscar-palavra" class="busca-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+      </div>
+      <div class="palavra-filtros">
+        <label class="filtro-item"><input type="checkbox" id="filtro-exata"/> Frase exata</label>
+        <select id="filtro-livro" class="filtro-select">
+          <option value="">Todos os livros</option>
+          <option value="AT">Antigo Testamento</option>
+          <option value="NT">Novo Testamento</option>
+          <optgroup label="──────────"></optgroup>
+          <option>Gênesis</option><option>Êxodo</option><option>Levítico</option><option>Números</option><option>Deuteronômio</option><option>Josué</option><option>Juízes</option><option>Rute</option><option>1 Samuel</option><option>2 Samuel</option><option>1 Reis</option><option>2 Reis</option><option>1 Crônicas</option><option>2 Crônicas</option><option>Esdras</option><option>Neemias</option><option>Ester</option><option>Jó</option><option>Salmos</option><option>Provérbios</option><option>Eclesiastes</option><option>Cantares</option><option>Isaías</option><option>Jeremias</option><option>Lamentações</option><option>Ezequiel</option><option>Daniel</option><option>Oséias</option><option>Joel</option><option>Amós</option><option>Obadias</option><option>Jonas</option><option>Miquéias</option><option>Naum</option><option>Habacuque</option><option>Sofonias</option><option>Ageu</option><option>Zacarias</option><option>Malaquias</option>
+          <optgroup label="──────────"></optgroup>
+          <option>Mateus</option><option>Marcos</option><option>Lucas</option><option>João</option><option>Atos</option><option>Romanos</option><option>1 Coríntios</option><option>2 Coríntios</option><option>Gálatas</option><option>Efésios</option><option>Filipenses</option><option>Colossenses</option><option>1 Tessalonicenses</option><option>2 Tessalonicenses</option><option>1 Timóteo</option><option>2 Timóteo</option><option>Tito</option><option>Filemom</option><option>Hebreus</option><option>Tiago</option><option>1 Pedro</option><option>2 Pedro</option><option>1 João</option><option>2 João</option><option>3 João</option><option>Judas</option><option>Apocalipse</option>
+        </select>
+      </div>
+      <p class="busca-dica"><kbd>Enter</kbd> para buscar</p>
+    </div>
+
+    <!-- Sugestões -->
+    <div class="sidebar-section" id="secao-sugestoes">
+      <p class="section-label">Sugestões</p>
+      <div class="sugestoes-lista">
+        <button class="sugestao-btn" data-ref="João 3">João 3</button>
+        <button class="sugestao-btn" data-ref="João 3:16">Jo 3:16</button>
+        <button class="sugestao-btn" data-ref="Salmos 23">Sl 23</button>
+        <button class="sugestao-btn" data-ref="Romanos 8">Rm 8</button>
+        <button class="sugestao-btn" data-ref="Hebreus 11">Hb 11</button>
+        <button class="sugestao-btn" data-ref="Filipenses 4:13">Fp 4:13</button>
+        <button class="sugestao-btn" data-ref="Gênesis 1">Gn 1</button>
+        <button class="sugestao-btn" data-ref="Mateus 5">Mt 5</button>
+      </div>
+    </div>
+
+    <!-- Nav de views especiais -->
+    <nav class="sidebar-nav">
+      <button class="nav-btn" data-view="favoritos">⭐ Favoritos</button>
+      <button class="nav-btn" data-view="marcadores">🔖 Marcadores</button>
+      <button class="nav-btn" data-view="tematicos">📚 Temáticos</button>
+    </nav>
+
+    <div class="sidebar-footer">Almeida RC · OpenBible.info</div>
+  </aside>
+
+  <!-- ═══════════ ÁREA CENTRAL ═══════════ -->
+  <main class="main-area">
+
+    <!-- Barra de abas -->
+    <div class="abas-bar">
+      <div class="abas-lista" id="abas-lista"></div>
+      <div class="abas-vazia hidden" id="abas-vazia">
+        <span style="color:var(--ouro-esc)">✦</span> pesquisas aparecem como abas
+      </div>
+    </div>
+
+    <!-- Conteúdo das abas -->
+    <div class="abas-content" id="abas-content">
+      <div id="boas-vindas" class="boas-vindas">
+        <div class="bv-icone">✝</div>
+        <h2 class="bv-titulo">Gerador de Sermão</h2>
+        <p class="bv-texto">Busque por referência, capítulo ou palavras. Use as abas da sidebar para acessar favoritos, marcadores e listas temáticas.</p>
+        <div class="bv-dicas">
+          <div class="dica-card"><span>📖</span><strong>Capítulos</strong><p>"Sl 23" mostra o capítulo completo</p></div>
+          <div class="dica-card"><span>🔗</span><strong>Referências</strong><p>"Jo 3:16" abre as refs cruzadas</p></div>
+          <div class="dica-card"><span>🔍</span><strong>Palavras</strong><p>Busque frases em toda Bíblia</p></div>
+          <div class="dica-card"><span>⭐</span><strong>Favoritos</strong><p>Salve versículos importantes</p></div>
+          <div class="dica-card"><span>🔖</span><strong>Marcadores</strong><p>Marque com cor personalizada</p></div>
+          <div class="dica-card"><span>📚</span><strong>Temáticos</strong><p>Listas de versículos por tema</p></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ═══════════ DIVISOR REDIMENSIONÁVEL ═══════════ -->
+  <div class="notas-divisor" id="notas-divisor" title="Arraste para redimensionar"></div>
+
+  <!-- ═══════════ PAINEL DE NOTAS ═══════════ -->
+  <aside class="notas-painel" id="notas-painel">
+
+    <div class="notas-header">
+      <div class="notas-header-topo">
+        <span class="notas-titulo-lbl">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+          Notas &amp; Sermões
+        </span>
+        <div class="notas-acoes-bar">
+          <button class="nic-btn" id="btn-nova-nota" title="Nova nota">＋</button>
+          <button class="nic-btn" id="btn-exportar-nota" title="Exportar">⬇</button>
+          <button class="nic-btn" id="btn-toggle-notas" title="Minimizar">◀</button>
+        </div>
+      </div>
+      <!-- Mini abas de notas -->
+      <div class="notas-tabs" id="notas-tabs"></div>
+    </div>
+
+    <div class="notas-corpo" id="notas-corpo">
+      <input type="text" id="nota-titulo" class="nota-titulo-inp" placeholder="Título do sermão..."/>
+      <textarea id="nota-editor" class="nota-editor"
+        placeholder="Escreva suas anotações aqui...
+
+Dicas:
+• Use referências como [João 3:16]
+• Organize com títulos em MAIÚSCULAS
+• Separe seções com — — —"></textarea>
+      <div class="nota-footer">
+        <span id="nota-palavras">0 palavras</span>
+        <span id="nota-status">—</span>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- Botão flutuante para reabrir notas -->
+  <button class="notas-reabrir hidden" id="btn-reabrir-notas" title="Abrir notas">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+    Notas
+  </button>
+
+  <!-- ═══════════ POPUP DE ANOTAÇÃO DE VERSÍCULO ═══════════ -->
+  <div class="popup-overlay hidden" id="popup-overlay">
+    <div class="popup-card" id="popup-card">
+      <div class="popup-header">
+        <span class="popup-titulo" id="popup-ref-label"></span>
+        <button class="popup-fechar" id="popup-fechar">✕</button>
+      </div>
+      <p class="popup-texto-verso" id="popup-texto-verso"></p>
+
+      <!-- Destaque com cor -->
+      <div class="popup-secao">
+        <label class="popup-label">Destaque</label>
+        <div class="popup-cores" id="popup-cores">
+          <button class="cor-btn" data-cor="" title="Sem destaque">✕</button>
+          <button class="cor-btn" data-cor="#c9a84c40" style="background:#c9a84c40" title="Dourado"></button>
+          <button class="cor-btn" data-cor="#4caf7d40" style="background:#4caf7d40" title="Verde"></button>
+          <button class="cor-btn" data-cor="#5b8dd940" style="background:#5b8dd940" title="Azul"></button>
+          <button class="cor-btn" data-cor="#e0606040" style="background:#e0606040" title="Vermelho"></button>
+          <button class="cor-btn" data-cor="#b06be040" style="background:#b06be040" title="Roxo"></button>
+          <button class="cor-btn cor-custom" data-cor="custom" title="Cor personalizada">🎨</button>
+        </div>
+        <input type="color" id="cor-picker" class="hidden" value="#c9a84c"/>
+      </div>
+
+      <!-- Anotação do versículo -->
+      <div class="popup-secao">
+        <label class="popup-label">Anotação</label>
+        <textarea id="popup-anotacao" class="popup-textarea" placeholder="Sua reflexão sobre este versículo..."></textarea>
+      </div>
+
+      <!-- Marcador -->
+      <div class="popup-secao popup-row">
+        <label class="popup-label">Marcador</label>
+        <div class="popup-marcador-cor" id="popup-marcador-cor">
+          <button class="cor-btn cor-marcador" data-cor="" title="Sem marcador">✕</button>
+          <button class="cor-btn cor-marcador" data-cor="#c9a84c" style="background:#c9a84c" title="Dourado"></button>
+          <button class="cor-btn cor-marcador" data-cor="#4caf7d" style="background:#4caf7d" title="Verde"></button>
+          <button class="cor-btn cor-marcador" data-cor="#5b8dd9" style="background:#5b8dd9" title="Azul"></button>
+          <button class="cor-btn cor-marcador" data-cor="#e06060" style="background:#e06060" title="Vermelho"></button>
+        </div>
+      </div>
+
+      <!-- Favorito + Tema -->
+      <div class="popup-secao popup-row">
+        <button class="popup-fav-btn" id="popup-fav-btn">☆ Favorito</button>
+        <select id="popup-tema-sel" class="popup-tema-sel">
+          <option value="">+ Adicionar a tema</option>
+        </select>
+      </div>
+
+      <div class="popup-footer">
+        <button class="popup-salvar" id="popup-salvar">Salvar</button>
+        <button class="popup-cancelar" id="popup-cancelar">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /app-root -->
+
+<script src="js/app.js"></script>
+</body>
+</html>

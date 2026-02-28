@@ -1,0 +1,132 @@
+═══════════════════════════════════════════════════════════════════════════════
+                         GERADOR DE SERMÃO v2.5
+                              RESUMO DO PROJETO
+═══════════════════════════════════════════════════════════════════════════════
+
+───────────────────────────────────────────────────────────────────────────────
+1. ESTRUTURA DE LINGUAGENS UTILIZADAS
+───────────────────────────────────────────────────────────────────────────────
+
+• HTML5          → Estrutura principal (index.html)
+• CSS3           → Estilização (css/estilos.css)
+• JavaScript     → Lógica e interatividade (js/app.js)
+• Python         → Processamento de dados (data/formatar.py, data/enriquecer.py)
+• JSON           → Armazenamento de dados (data/referencias.json)
+
+───────────────────────────────────────────────────────────────────────────────
+2. BANCO DE DADOS / FONTES DE DADOS
+───────────────────────────────────────────────────────────────────────────────
+
+• referencias.json   → Banco de referências cruzadas bíblicas (29.364 versículos,
+                      344.799 referências, Almeida RC - Revista e Corrigida)
+• referencias1.json  → Dados adicionais de referências
+• referencias2.json  → Dados adicionais de referências
+• biblia-em-txt.txt → Texto completo da Bíblia em formato texto
+• localStorage       → Persistência de dados no navegador (favoritos, marcadores,
+                      anotações, temas)
+
+───────────────────────────────────────────────────────────────────────────────
+3. ESTRUTURA DE PASTAS
+───────────────────────────────────────────────────────────────────────────────
+
+sermon-generator/
+├── index.html                 # Arquivo principal (HTML)
+├── README.md                  # Documentação
+├── referencias.json           # Dados de referências cruzadas
+├── css/
+│   └── estilos.css           # Estilos CSS completo
+├── js/
+│   └── app.js                # Lógica JavaScript
+└── data/
+    ├── biblia-em-txt.txt    # Bíblia em texto plano
+    ├── enrichecer.py         # Script Python para enriquecer dados
+    ├── formatar.py          # Script Python para formatação
+    ├── referencias.json      # Banco de refs cruzadas
+    ├── referencias1.json    # Dados complementares
+    └── referencias2.json    # Dados complementares
+
+───────────────────────────────────────────────────────────────────────────────
+4. FUNCIONALIDADES EXISTENTES
+───────────────────────────────────────────────────────────────────────────────
+
+► BUSCA BÍBLICA
+  • Busca por referência bíblica (ex: "João 3:16", "Sl 23")
+  • Busca por capítulo completo (ex: "Gênesis 1")
+  • Busca por palavra/frase em toda a Bíblia
+  • Suporte a abreviações (ex: "Jo", "Gn", "Rm", "Hb")
+  • Filtro por livro bíblico (Antigo/Novo testamento)
+  • Busca por frase exata ou todas as palavras
+
+► REFERÊNCIAS CRUZADAS
+  • Exibição de referências cruzadas para cada versículo
+  • Ordenação por relevância (votos)
+  • Destaque para referências mais confirmadas (≥100 votos)
+  • Links para visualização de capítulos
+
+► SISTEMA DE FAVORITOS
+  • Marcar versículos como favoritos
+  • Visualizar lista de favoritos
+  • Exportar favoritos para arquivo de texto
+
+► SISTEMA DE MARCADORES
+  • Marcar versículos com cores personalizadas
+  • Cores disponíveis: Dourado, Verde, Azul, Vermelho, Roxo
+  • Marcador customizável (corPicker)
+
+► SISTEMA DE ANOTAÇÕES
+  • Anotações pessoais para cada versículo
+  • Destaque de texto com cores
+  • Anotações inline exibidas abaixo do versículo
+
+► LISTAS TEMÁTICAS
+  • Criar listas temáticas personalizadas
+  • Adicionar versículos a temas
+  • Visualizar e gerenciar listas por tema
+
+► PAINEL DE NOTAS E SERMÕES
+  • Editor de notas completo
+  • Múltiplas abas de notas
+  • Contagem de palavras
+  • Auto-salvamento
+  • Exportação de notas
+
+► EXPORTAÇÃO
+  • Exportar capítulo completo (TXT)
+  • Exportar estudo de referências cruzadas (TXT)
+  • Exportar favoritos (TXT)
+  • Exportar notas individuais (TXT)
+  • Copiar para área de transferência
+
+► INTERFACE
+  • Design escuro com acentos dourados
+  • Sidebar redimensionável
+  • Abas múltiplas para pesquisas
+  • Sistema de abas para notas
+  • Divisor redimensionável entre áreas
+  • Popup para detalhes de versículos
+  • Tela de boas-vindas com dicas
+
+► OUTROS
+  • Sugestões rápidas de versículos
+  •Persistência de dados no localStorage
+  •Contador de palavras nas notas
+  •Suporte a toque/dispositivos móveis
+  •Tema visual: "Manuscrito Sagrado" (escuro, dourado, refinado)
+
+───────────────────────────────────────────────────────────────────────────────
+5. TECNOLOGIAS E RECURSOS EXTERNOS
+───────────────────────────────────────────────────────────────────────────────
+
+• Google Fonts: Cinzel, Lora, Source Sans 3
+• Fonte dos dados: OpenBible.info (CC-BY)
+• Tradução: João Ferreira de Almeida - Revista e Corrigida (RC)
+
+───────────────────────────────────────────────────────────────────────────────
+6. VERSÃO ATUAL
+───────────────────────────────────────────────────────────────────────────────
+
+v2.5 · Estudo Bíblico
+
+═══════════════════════════════════════════════════════════════════════════════
+                              FIM DO RESUMO
+═══════════════════════════════════════════════════════════════════════════════
